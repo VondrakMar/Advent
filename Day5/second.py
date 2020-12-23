@@ -20,11 +20,13 @@ def whichseat(seq,Srow, Scol, row, col):
         return whichseat(seq[1:], R[0], C[0], R[1], C[1])
     else:
         return R[0]*8 + C[0]
-# first part answer
-max = 0
+# second part answer
+sedadla = []
 for line in f:
-    hold = whichseat(line, 0, 0, rowsN, columnN)
-    if max < hold:
-        max = hold
-print(max)
+    sedadla.append(whichseat(line, 0, 0, rowsN, columnN))
+sedadla.sort()
+for a in range(len(sedadla)-1):
+    if sedadla[a] != sedadla[a+1] - 1:
+        print(sedadla[a]+1)
+
 
